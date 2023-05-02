@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function() {
         let name = e.target.search.value;
         fetchData(name);
     });
-});
+}); 
 
 function fetchData(name) {
     const url = `http://vps.cpe-sn.fr:8083/cards`;
@@ -64,7 +64,7 @@ function displayCard(card) {
     let clone = document.importNode(template.content, true);
 
     newContent = clone.firstElementChild.innerHTML
-        .replace(/{{family_src}}/g, card.imgUrl) // replace imgUrl with the appropriate property from your actual data
+        .replace(/{{family_src}}/g, card.imgUrl) 
         .replace(/{{family_name}}/g, card.family)
         .replace(/{{img_src}}/g, card.imgUrl)
         .replace(/{{name}}/g, card.name)
@@ -76,7 +76,7 @@ function displayCard(card) {
     clone.firstElementChild.innerHTML= newContent;
 
     let cardContainer = document.querySelector("#cardContainer");
-    cardContainer.innerHTML = ''; // clear the container before adding new card
+    cardContainer.innerHTML = ''; 
     cardContainer.appendChild(clone);
 }
 

@@ -1,33 +1,31 @@
 $(document).ready(function() {
     $('.ui.form').on('submit', function(event) {
-        event.preventDefault();  // Prevent form from submitting to the server
+        event.preventDefault(); 
 
-        // Capture form data
         let formData = {
             name: $('#form-name').val(),
             description: $('#form-desc').val(),
             family: $('#form-family').val(),
             affinity: $('#form-affinity').val(),
             imgUrl: $('#form-imgUrl').val(),
-            smallImgUrl: '',  // This field is not provided in your form
+            smallImgUrl: '', 
             id: $('#form-id').val(),
             energy: $('#form-energy').val(),
             hp: $('#form-hp').val(),
             defence: $('#form-defence').val(),
             attack: $('#form-attack').val(),
-            price: 0,  // This field is also not provided in your form
-            userId: 0  // I'm not sure where you want to get this value from
+            price: 0, 
+            userId: 0 
         };
-
-        // Log form data to console
         console.log(formData);
     });
 });
 
-// main.js
 document.getElementById('submit-button').addEventListener('click', function(event){
     event.preventDefault();
+
     const form = document.getElementById('card-form');
+
     let cardData = {
         name: form.name.value,
         description: form.description.value,
@@ -46,7 +44,6 @@ document.getElementById('submit-button').addEventListener('click', function(even
     };
     console.log(cardData);
 
-    // Send POST request to the API
     fetch('http://vps.cpe-sn.fr:8083/card', {
         method: 'POST', 
         headers: {
